@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+
+* {
+    font-family: "Gotu", serif;
+}
+
+.heading {
+    background-color: #bcfaaa;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.content {
+    margin: 0 2rem;
+}
+
+h2 {
+    background-color: #f8c4fb;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: underline;
+}
+
+h3 {
+    text-decoration: underline;
+    color: #6600ff;
+}
+
+code {
+    color: #0008ff;
+    background-color: #fcf9e3;
+    border-radius: 5px;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+}
+
+span {
+    color: red;
+}
+
+b {
+    color: #008698;
+}
+
+.backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    background-color: #007bff;
+    cursor: pointer;
+    padding: 7px 13px;
+    font-weight: bold;
+    border-radius: 40%;
+    box-shadow: 1px 1px 10px #ff00a6;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+a .backToTop {
+    color: white;
+    text-decoration: none;
+}
+
+.backToTop:hover {
+    background-color: #0056b3;
+}
