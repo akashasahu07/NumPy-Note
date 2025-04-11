@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NumPy & Pandas | Note</title>
+    <title>NumPy, Pandas & Matplotlib | Note</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -1379,19 +1379,144 @@
                     <br><span>Ex: </span>
                     <code>for x in np.nditer(a, flags=['buffered'], op_dtypes=['float']):
                         <br>"op_dtypes" is used to change type
-                    </code>
+                    </code></ul>
 
                     <h3>Normal Python Loops vs nditer():</h3>
-                    <b>Python:</b>
                     <ul>
-                        <li>n-loops are required.</li>
-                        <li>There is no way to specify our required dtype.</li>
+                        <b>Python:</b>
+                        <ul>
+                            <li>n-loops are required.</li>
+                            <li>There is no way to specify our required dtype.</li>
+                        </ul>
+
+                        <b>nditer():</b>
+                        <ul>
+                            <li>Only one loop is enough.</li>
+                            <li>There is a way to specify required dtype. For this we have to use "op_dtype" argument.
+                            </li>
+                        </ul>
                     </ul>
 
-                    <b>nditer():</b>
+                    <b>By using ndenumerate() function:</b>
                     <ul>
-                        <li>Only one loop is enough.</li>
-                        <li>There is a way to specify required dtype. For this we have to use "op_dtype" argument.</li>
+                        <li>If we want to find co-ordinates also in addition to element.</li>
+                        <li>Array indices(co-ordinates) and values.</li>
+                        <p><b>1-D Array:</b></p>
+                        <span>Ex: </span>
+                        <code>
+                            a = np.array([10, 20, 30, 40, 50])
+                            <br>for pos, element in np.ndenumerate(a):
+                            <br>
+                            <ul>
+                                <code>print(f'{element} element present at index/position: {pos}')</code>
+                    </ul>
+                    </code>
+
+                    <p><b>2-D Array:</b></p>
+                    <span>Ex: </span>
+                    <code>
+                            a = np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]])
+                            <br>for pos, element in np.ndenumerate(a):
+                            <br>
+                            <ul>
+                                <code>print(f'{element} element present at index/position: {pos}')</code>
+                    </ul>
+                    </code>
+
+                    <p><b>3-D Array:</b></p>
+                    <span>Ex: </span>
+                    <code>
+                            a = np.arange(1, 25).reshape(2, 3,4)
+                            <br>for pos, element in np.ndenumerate(a):
+                            <ul>
+                                <code>print(f'{element} element present at index/position: {pos}')</code>
+                    </ul>
+                    </code>
+                    </ul>
+                </div>
+
+                <div class="operators">
+                    <h3>Arithmatic Operators <span>(+, -, *, /, **, //)</span></h3>
+                    <b>1-D Array:</b>
+                    <ul>
+                        <span>Ex: </span>
+                        <code>
+                            >>> a = np.array([10, 20, 30, 40])
+                            <br>>>> print(a + 2)
+                            <br>>>> print(a - 2)
+                            <br>>>> print(a * 2)
+                            <br>>>> print(a / 2)
+                            <br>>>> print(a % 2)
+                            <br>>>> print(a // 2)
+                        </code>
+                    </ul>
+
+                    <b>2-D Array: </b>
+                    <ul> <span>Ex: </span>
+                        <code>
+                            >>> a = np.array([[10, 20, 30], [40, 50, 60]])
+                            <br>>>> print(a + 2)
+                            <br>>>> print(a - 2)
+                            <br>>>> print(a * 2)
+                            <br>>>> print(a / 2)
+                            <br>>>> print(a % 2)
+                            <br>>>> print(a // 2)
+                        </code>
+
+                        <li>In python anything by <code>"zero"</code> including <code>"zero/zero"</code> result is
+                            always <code>"ZeroDivisionError"</code>.</li>
+                        <li>But in NumPy there is no <code>"ZeroDivisionError"</code></li>
+                        <span>Ex: </span>
+                        <code>
+                            10/0 -- infinity(inf)
+                            <br>0/0 -- undefined(NaN -- Not a Number)
+                        </code>
+                    </ul>
+
+                    <h3>Arithmatic Operators for Arrays with Arrays</h3>
+                    <ul>
+                        <li>Compulsory both arrays should have</li>
+                        <ul>
+                            <li>Same dimention</li>
+                            <li>Same shape and</li>
+                            <li>Same size</li>
+                        </ul>
+                        <li>Otherwise we will get error.</li>
+                    </ul>
+
+                    <b>1-D Array:</b><br>
+                    <ul>
+                        <span>Ex: </span>
+                        <code>
+                            >>> a = np.array([10, 20, 30, 40])
+                            <br>>>> b = np.array([1, 2, 3, 4])
+                            <br>>>> a.ndim
+                            # 1
+                            <br>>>> b.ndim
+                            # 1
+                            <br>>>> a.shape
+                            # (4,)
+                            <br>>>> b.shape
+                            # (4,)
+                            <br>>>> a.size
+                            # 4
+                            <br>>>> b.size
+                            # 4
+                            <br>>>> b + a
+                            # array([11, 22, 33, 44])
+                            <br>>>> b - a
+                            # array([ -9, -18, -27, -36])
+                            <br>>>> a + b
+                            # array([11, 22, 33, 44])
+                            <br>>>> a - b
+                            # array([ 9, 18, 27, 36])
+                            <br>>>> a * b
+                            # array([ 10,  40,  90, 160])
+                            <br>>>> a / b
+                            # array([10., 10., 10., 10.])
+                            <br>>>> a // b
+                            # array([10, 10, 10, 10])
+                        </code>
                     </ul>
                 </div>
             </div>
