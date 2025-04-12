@@ -1518,6 +1518,102 @@
                             # array([10, 10, 10, 10])
                         </code>
                     </ul>
+
+                    <b>2-D Array:</b>
+                    <ul>
+                        <span>Ex: </span>
+                        <code>
+                            a = np.array([[1, 2], [3, 4]])
+                            <br>b = np.array([[5, 6], [7, 8]])
+                            <br>a + b
+                            <br>a - b
+                            <br>a * b
+                            <br>b / a
+                            <br>b // a
+                            <br><span>Ex: </span>
+                            <br>(If dimention or size not same on both array we will get this error)
+                            <br>>>> a = np.array([10, 20, 30])
+                            <br>>>> b = ([10, 20, 30, 40])
+                            <br>>>> a + b
+                            <br>ValueError: operands could not be broadcast together with shapes (3,) (4,)
+                        </code>
+                    </ul>
+
+                    <h3>Equivalent function for arithmatic operators in numpy</h3>
+                    <ul>
+                        <span>Ex: </span>
+                        <code>
+                            >>> a = np.array([10, 20, 30])
+                            <br>>>> b = np.array([1, 2, 3])
+                            <br>>>> np.add(a, b)
+                            <br>>>> np.subtract(a, b)
+                            <br>>>> np.multiply(a, b)
+                            <br>>>> np.divide(a, b)
+                            <br>>>> np.floor_divide(a, b)
+                            <br>>>> np.mod(a, b)
+                            <br>>>> np.power(a, b)
+                        </code>
+                    </ul>
+                    <b>Note:
+                    </b><code>The functions which operates element by element on whole array are called as universal functions(ufunc).</code>
+                </div>
+
+                <div class="broadcasting">
+                    <h3>Broadcasting</h3>
+                    <ul>
+                        <li>Even though dimentions are different, shapes are different and sizes are different still
+                            some arithmatic operations are allowed by broadcasting.</li>
+                        <li>Broadcasting will be performed automatically by numpy itself and we are not required to
+                            perform explicitly.</li>
+                    </ul>
+
+                    <h3>Rules for Broadcasting</h3>
+                    <ul>
+                        <li><b>Rule-1: </b>Make sure both arrays should be same dimention. Padded(Add) 1's in the shape
+                            of lesser dimention array on the left side untill both array have same dimension.</li>
+
+                        <span>Ex: </span>
+                        <ul>
+                            <b>Before: </b>
+                            <code>
+                            <br>(4, 3) -- 2-D
+                            <br>(3,) -- 1-D
+                        </code>
+                            <br>
+                            <b>After: </b>
+                            <code>
+                            <br>(4, 3) -- 2-D
+                            <br>(1, 3) -- 2-D
+                        </code>
+                        </ul>
+
+                        <li><b>Rule-2: </b>If the size of two arrays doesn't match in any dimention, then the arrays
+                            with size equal to 1 in that dimention will be increased to the size of other dimention to
+                            match.</li>
+                        <br>
+                        <span>Note: </span>
+                        <code>If any dimention, the sizes are not matched and neither equal to 1, then we will get an error, NumPy does not able to perform broadcasting between those arrays.</code>
+                        <br><br>
+
+                        <span>Ex: </span>
+                        <ul>
+                            <b>Before: </b><br>
+                            <code>
+                                (4, 3) -- 2-D
+                                <br>(1, 3) -- 2-D
+                            </code>
+
+                            <br><b>After: </b><br>
+                            <code>
+                                (4, 3) -- 2-D
+                                <br>(4, 3) -- 2-D
+                            </code>
+
+                            <li>Now dimension, shapes and size are equal.</li>
+                        </ul>
+
+                        <li><span>Ex: </span></li>
+                    </ul>
                 </div>
             </div>
         </div>

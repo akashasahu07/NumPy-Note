@@ -96,6 +96,8 @@ import numpy as np
 # >>> a/0
 # array([nan, inf, inf, inf, inf, inf])
 
+# 1-D Array
+
 # >>> a = np.array([10, 20, 30, 40])
 # >>> b = np.array([1, 2, 3, 4])
 # >>> a.ndim
@@ -124,3 +126,40 @@ import numpy as np
 # array([10., 10., 10., 10.])
 # >>> a // b
 # array([10, 10, 10, 10])
+
+# 2-D Array
+# >>> a = np.array([[1, 2], [3, 4]])
+# >>> b = np.array([[5, 6], [7, 8]])
+# >>> a + b
+# array([[ 6,  8],
+#        [10, 12]])
+# >>> a - b
+# array([[-4, -4],
+#        [-4, -4]])
+# >>> a * b
+# array([[ 5, 12],
+#        [21, 32]])
+# >>> b / a
+# array([[5.        , 3.        ],
+#        [2.33333333, 2.        ]])
+# >>> b // a
+# array([[5, 3],
+#        [2, 2]])
+
+# Equivalent function for arithmatic operators in numpy
+# >>> a = np.array([10, 20, 30])
+# >>> b = np.array([1, 2, 3])
+# >>> np.add(a, b)
+# array([11, 22, 33])
+# >>> np.subtract(a, b)
+# array([ 9, 18, 27])
+# >>> np.multiply(a, b)
+# array([10, 40, 90])
+# >>> np.divide(a, b)
+# array([10., 10., 10.])
+# >>> np.floor_divide(a, b)
+# array([10, 10, 10])
+# >>> np.mod(a, b)
+# array([0, 0, 0])
+# >>> np.power(a, b)
+# array([   10,   400, 27000])
