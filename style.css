@@ -49,19 +49,23 @@ b {
     bottom: 30px;
     right: 20px;
     background-color: #007bff;
+    color: white;
     cursor: pointer;
     padding: 7px 13px;
     font-weight: bold;
-    border-radius: 40%;
+    border-radius: 50%;
     box-shadow: 1px 1px 10px #ff00a6;
     transition: opacity 0.3s, transform 0.3s;
+    z-index: 999;
 }
 
-a .backToTop {
+.backToTop {
     color: white;
     text-decoration: none;
+    scroll-behavior: smooth;
 }
 
 .backToTop:hover {
     background-color: #0056b3;
+    transform: scale(1.1);
 }
