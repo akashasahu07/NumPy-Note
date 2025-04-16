@@ -57,6 +57,7 @@ b {
     box-shadow: 1px 1px 10px #ff00a6;
     transition: opacity 0.3s, transform 0.3s;
     z-index: 999;
+    border: none;
 }
 
 .backToTop {
@@ -68,4 +69,72 @@ b {
 .backToTop:hover {
     background-color: #0056b3;
     transform: scale(1.1);
+}
+
+/* Code for dark mode */
+#darkModeBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    padding: 2px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 40%;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ffffff;
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#darkModeBtn:hover {
+    background-color: #045882;
+    transform: scale(1.1);
+}
+
+body.dark-mode #darkModeBtn {
+    background-color: #333;
+    color: #000000;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .heading {
+    background-color: #00611b;
+}
+
+body.dark-mode h2 {
+    background-color: #570091;
+    color: #ffffff;
+}
+
+body.dark-mode h3 {
+    color: #d8a405;
+}
+
+body.dark-mode code {
+    background-color: #1e1e1e;
+    color: #00bccd;
+}
+
+body.dark-mode span {
+    color: #ff6b6b;
+}
+
+body.dark-mode b {
+    color: #3be503;
+}
+
+body.dark-mode .backToTop {
+    background-color: #dd01e8;
+    box-shadow: 1px 1px 10px #00ffff;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .backToTop:hover {
+    background-color: #71017d;
 }

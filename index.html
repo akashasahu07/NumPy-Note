@@ -1690,22 +1690,40 @@
                         <li>.transpose()</li>
                         <li>.swapaxes()</li>
                     </ul>
+                    <p><b>reshape():</b></p>
+                    <ul>
+                        <li>One shape to another shape.</li>
+                        <span>Ex: </span>
+                        <code>
+                            (10,) -- (5, 2), (2, 5), (10, 1), (1, 10)
+                            <br>(24,) -- (3, 8) -- (2, 3, 4), (6, 4), (2, 2, 2, 3)
+                        </code>
+
+                        <li>The data should not be changed.</li>
+                        <li>Input size and output size must be matched.</li>
+                        <span>Ex: </span>
+                        <code>
+                            >>> a = np.arange(10)
+                            <br>>>> a
+                            <br>>>> b = np.reshape(a, (5, 2))
+                            <br>>>> b = np.reshape(a, (10, 1))
+                            <br>>>> b = np.reshape(a, (1, 5, 2)) # 3-D array 5-rows and 2-cols
+                            <br>>>> a = np.arange(24)
+                            <br>>>> b = np.reshape(a, (6, 4))
+                            <br>>>> b = np.reshape(a, (2, 3, 4))
+                            <br>>>> b = np.reshape(a, (6, 5)) # ValueError: cannot reshape array of size 24 into shape (6,5)
+                        </code>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="backToTop" onclick="scrollToTop()">↑</div>
+    <button class="backToTop" onclick="scrollToTop()">↑</button>
+    <button onclick="toggleDarkMode()" id="darkModeBtn" title="Toggle Dark Mode">🌙</button>
 
-    <script>
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    </script>
 
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -163,3 +163,18 @@ import numpy as np
 # array([0, 0, 0])
 # >>> np.power(a, b)
 # array([   10,   400, 27000])
+
+# Reshape
+# a = np.arange(10)
+# print(a)
+# b1 = np.reshape(a, (5, 2))
+# print(b1)
+# b2 = np.reshape(a, (10, 1))
+# print(b2)
+# b3 = np.reshape(a, (1, 5, 2))
+# print(b3)
+
+# a = np.arange(24)
+# b1 = np.reshape(a, (6, 4))
+# b2 = np.reshape(a, (2, 3, 4))
+# print(a, b1, b2)
