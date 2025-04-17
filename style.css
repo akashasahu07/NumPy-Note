@@ -59,6 +59,7 @@ b {
     transition: opacity 0.3s, transform 0.3s;
     z-index: 999;
     border: none;
+    outline: none;
 }
 
 .backToTop {
@@ -91,6 +92,7 @@ b {
     align-items: center;
     justify-content: center; /* center horizontally */
     font-size: 18px;
+    outline: none;
 }
 
 #darkModeBtn:hover {

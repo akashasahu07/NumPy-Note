@@ -178,3 +178,14 @@ import numpy as np
 # b1 = np.reshape(a, (6, 4))
 # b2 = np.reshape(a, (2, 3, 4))
 # print(a, b1, b2)
+
+# a = np.arange(12)
+# print(a)
+# b = np.reshape(a, (4, 3))
+# print(b)
+# a[0] = 333
+# print(a)
+# print(b)
+# b[1][1] = 999
+# print(a)
+# print(b)
