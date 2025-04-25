@@ -1728,7 +1728,8 @@
                         <li>No change in the data, New array object won't be created.</li>
                         <li>Just we are getting view of existing object.</li>
                         <li>View but not copy</li>
-                        <li>If we perform any changes in the original array, that change will be reflected to reshaped array viceversa.</li>
+                        <li>If we perform any changes in the original array, that change will be reflected to reshaped
+                            array viceversa.</li>
                         <span>Ex: </span>
                         <code>
                             <br>>>> a = np.arange(12)
@@ -1763,7 +1764,132 @@
                             <br>>>> b = np.reshape(a, (3, 4, -1))
                             <br>>>> b = np.reshape(a, (5, -1)) # Error
                         </code>
+                        <br><br>
+                        <li>
+                            <code>
+                                >>> help(np.reshape)
+                                <br>reshape(a, newshape, order='C')
+                            </code>
+                            <ul>
+                                <li>C Style -- Row major Order</li>
+                                <li>Fortran Style -- Column Major Order</li>
+                                <span>Ex:</span>
+                                <code>
+                                    <br>>>> a = np.arange(12).reshape(3, 4)
+                                    <br>>>> a
+                                    # array([[ 0,  1,  2,  3],
+                                        [ 4,  5,  6,  7],
+                                        [ 8,  9, 10, 11]])
+                                    <br>>>> b = np.reshape(a, (12,), 'C')
+                                    <br>>>> b
+                                    # array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])
+                                    <br>>>> b = np.reshape(a, (12,), 'F')
+                                    <br>>>> b
+                                    # array([ 0,  4,  8,  1,  5,  9,  2,  6, 10,  3,  7, 11])
+                                </code>
+                                <br><span>Ex:</span>
+                                <code>
+                                    <br>>>> a = np.arange(24)
+                                    <br>>>> a
+                                    <br>>>> np.reshape(a, (6, 4), 'C')
+                                    <br>>>> np.reshape(a, (6, 4), 'F')
+                                </code>
+                            </ul>
+                        </li>
                     </ul>
+
+                    <p><b>Conclusion:</b></p>
+                    <ul>
+                        <li>To reshape array without changing data.</li>
+                        <li>The size must be matched.</li>
+                        <li>We can use either numpy library function or ndarray class method.</li>
+                        <ul>
+                            <li>np.reshape()</li>
+                            <li>a.reshape()</li>
+                        </ul>
+                        <li>It won't create a new array object, just we will get view.</li>
+                        <li>We can use -1 in unknown dimention, but only once.</li>
+                        <li>Order: 'C', 'F'</li>
+                    </ul>
+
+                    <p><b>resize():</b></p>
+                    <p>Output Array: can be any dimention, any shape, any size.</p>
+                    <ul>
+                        <li>Input size and output size need not be matched.</li>
+                        <li>The data may be changed.</li>
+                        <li>We will get copy but not view.</li>
+                        <li>How to get that new data.</li>
+                        <ul>
+                            <li>np.resize() -- Repeate elements of input array.</li>
+                            <li>a.resize() -- Use zero for extra elements.</li>
+                        </ul>
+                        <li>-1 such type of story not applicable for resize()</li>
+                        <ul>
+                            <li>input: (10,)</li>
+                            <li>reshape: (5, -1)</li>
+                            <li>resize: (5, -1)</li>
+                        </ul>
+                        <li>If we use ndarray class resize() method, inline modification will be happened.</li>
+                        <span>Ex:</span>
+                        <code>
+                            <br>>>> a = np.arange(1, 6)
+                            <br>>>> a
+                            <br>>>> b = np.resize(a, (4, 3))
+                            <br>>>> b
+                            <br>>>> a[0] = 333
+                            <br>>>> a
+                            <br>>>> b
+                            <br>>>> b[0][1] = 999
+                            <br>>>> b
+                            <br>>>> a
+                            <br>>>> refcheck = False
+                            <br>>>> a = np.arange(1, 6)
+                            <br>>>> a.resize(5, 3)
+                            <br>>>> a  
+                        </code>
+                    </ul>
+
+                    <p><b>Q: </b>Difference between np.resize() and ndarray.resize()?</p>
+                    <span>Ans:</span>
+                    <table class="comparison-table">
+                        <tr>
+                            <th>np.resize()</th>
+                            <th>ndarray.resize()</th>
+                        </tr>
+                        <tr>
+                            <td>It is a library function in numpy module.</td>
+                            <td>It is a method present in ndarray class.</td>
+                        </tr>
+                        <tr>
+                            <td>It will create new array and returned it.</td>
+                            <td>It won't return new array and existing array will be modified.</td>
+                        </tr>
+                        <tr>
+                            <td>If the new_shape required more elements then repeated copies of original array will be reused.</td>
+                            <td>Extra elements filled with zeros.</td>
+                        </tr>
+                    </table>
+
+                    <p><b>Q: </b>Difference between reshape() and resize()?</p>
+                    <span>Ans:</span>
+                    <table class="comparison-table">
+                        <tr>
+                            <th>reshape()</th>
+                            <th>resize()</th>
+                        </tr>
+                        <tr>
+                            <td>It is just to reshape to array without changing size and data.</td>
+                            <td>It is to resize() array, data may be changed, size may be changed.</td>
+                        </tr>
+                        <tr>
+                            <td>Just a view will be created but not copy. If we perform any changes in the original array automatically those changes will be reflected in reshaed copy also.</td>
+                            <td>Separate copy will be created. If we perform any changes in the original array those changes won't be reflected in resize array.</td>
+                        </tr>
+                        <tr>
+                            <td>We can use -1 in unknown dimention.</td>
+                            <td>There is no story like -1.</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
