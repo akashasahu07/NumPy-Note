@@ -90,7 +90,8 @@ b {
     transition: background-color 0.3s, transform 0.3s;
     display: flex;
     align-items: center;
-    justify-content: center; /* center horizontally */
+    justify-content: center;
+    /* center horizontally */
     font-size: 18px;
     outline: none;
 }
@@ -151,7 +152,7 @@ body.dark-mode .backToTop:hover {
     margin: 0.5rem auto;
     border-collapse: collapse;
     background-color: #fff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
     font-size: 1rem;
@@ -175,7 +176,8 @@ body.dark-mode .backToTop:hover {
 /* Add bullet before every td content */
 .comparison-table td::before {
     content: "🔸";
-    color: #007bff; /* bullet color */
+    color: #007bff;
+    /* bullet color */
     font-weight: bold;
     display: inline-block;
     margin-right: 8px;
@@ -193,4 +195,30 @@ body.dark-mode .comparison-table th {
 
 body.dark-mode .comparison-table td {
     color: #f0f0f0;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #4f46e5, #3b82f6);
+    /* Indigo to Blue */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
