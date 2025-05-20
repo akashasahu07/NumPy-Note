@@ -1704,7 +1704,7 @@
                         <li>.transpose()</li>
                         <li>.swapaxes()</li>
                     </ul>
-                    <p><b>reshape():</b></p>
+                    <p><b>.reshape():</b></p>
                     <ul>
                         <li>One shape to another shape.</li>
                         <span>Ex: </span>
@@ -1818,7 +1818,7 @@
                         <li>Order: 'C', 'F'</li>
                     </ul>
 
-                    <p><b>resize():</b></p>
+                    <p><b>.resize():</b></p>
                     <p>Output Array: can be any dimention, any shape, any size.</p>
                     <ul>
                         <li>Input size and output size need not be matched.</li>
@@ -1899,6 +1899,39 @@
                             <td>There is no story like -1.</td>
                         </tr>
                     </table>
+
+                    <p><b>.flatten():</b></p>
+                    <ul>
+                        <li>It convert any n-D array to 1-D array.</li>
+                        <li>It is a method present in ndarray class but not numpy library function.</li>
+                        <ul>
+                            <li>a.flatten() -- Valid</li>
+                            <li>np.flatten() -- Invalid</li>
+                        </ul>
+                        <li>a.flatten(order='C')</li>
+                        <ul>
+                            <li>C-style -- row major order</li>
+                            <li>F-style -- column major order</li>
+                        </ul>
+                        <li>It will create a new copy and returns it. (i.e copy but not view)</li>
+                        <li>The output of the flatten method is always 1-D array.</li>
+
+                        <span>Ex: </span>
+                        <br>
+                        <code>
+                            >>> a = np.arange(6).reshape(3, 2)
+                            <br>>>> a
+                            <br>>>> a.flatten()
+                            <br>>>> a.flatten('F')
+                            <br>>>> b = a.flatten()
+                            <br>>>> a[0][0] = 3113
+                            <br>>>> a
+                            <br>>>> b
+                            <br>>>> b[1] = 999
+                            <br>>>> b 
+                            <br>>>> a 
+                        </code>
+                    </ul>
                 </div>
             </div>
         </div>
