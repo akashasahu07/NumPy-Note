@@ -1931,6 +1931,113 @@
                             <br>>>> b 
                             <br>>>> a 
                         </code>
+                        <br><span>Ex: </span>
+                        <br>
+                        <code>
+                            >>> a = np.arange(1, 19).reshape(3, 3, 2)
+                            <br>>>> a
+                            <br>>>> b = a.flatten()
+                            <br>>>> a.ndim #3
+                            <br>>>> b.ndim #1
+                            <br>>>> b
+                        </code>
+                    </ul>
+
+                    <p><b>.flat variable:</b></p>                    
+                    <ul>
+                        <li>It is a 1-D iterator over the array.</li>
+                        <li>This is a 'numpy.flatiter' instance.</li>
+                        <ul>
+                            <span>Ex:</span>
+                            <br><Code>
+                                >>> a = np.arange(1, 19).reshape(3, 3, 2)
+                                <br>>>> a
+                                <br>>>> a.flat[2] #3
+                                <br>>>> a.flat[10] #11
+                                <br>>>> for x in a.flat: print(x)
+                            </Code>
+                        </ul>
+                    </ul>
+
+                    <p><b>.ravel():</b></p>
+                    <ul>
+                        <li>Convert any n-D array to 1-D array.</li>
+                        <li>It is a method present in ndarray class and also numpy library function.</li>
+                        <ul>
+                            <li>a.ravel() -- Valid</li>
+                            <li>np.ravel() -- Valid </li>
+                        </ul>
+                        <li>a.ravel(order='C' | 'F')</li>
+                        <li>It returns view but not copy.</li>
+                        <li>The output of ravel method is always 1-D array.</li>
+                        <span>Ex:</span>
+                        <br><code>
+                            >>> help(np.ravel)
+                            <br>>>> help(np.ndarray.ravel)
+                        </code>
+                        <br><span>Ex:</span>
+                        <br><code>
+                            >>> a = np.arange(24).reshape(2, 3, 4)
+                            <br>>>> a
+                            <br>>>> b = a.ravel() #view
+                            <br>>>> b[0] = 333
+                            <br>>>> b
+                            <br>>>> a
+                            <br>>>> a = np.arange(18).reshape(6, 3)
+                            <br>>>> a
+                            <br>>>> b = np.ravel(a)
+                            <br>>>> b
+                        </code>
+                    </ul>
+
+                    <p><b>Q: </b>Difference between faltten() and ravel()?</p>
+                    <span>Ans:</span>
+                    <table class="comparison-table">
+                        <tr>
+                            <th>flatten()</th>
+                            <th>ravel()</th>
+                        </tr>
+
+                        <tr>
+                            <td>To convert any n-D array to 1-D array and a new array object will be created.</td>
+                            <td>To convert any n-D array to 1-D array but returns just view but not copy.</td>
+                        </tr>
+
+                        <tr>
+                            <td>If we perform any changes in the flatten copy, then those changes won't be reflected in the original copy.</td>
+                            <td>If we perform any changes in the ravel copy, then those chnages will be reflected in the original copy.</td>
+                        </tr>
+
+                        <tr>
+                            <td>It is ndarray class method but not numpy library function.</td>
+                            <td>We can use as method ans as well as a function.</td>
+                        </tr>
+                    </table>
+
+                    <p><b>.transpose():</b></p>
+                    <code>>>> help(np.transpose)</code>
+                    <ul>
+                        <li>transpose(a, axes = None)</li>
+                        <li>Reverse or permute the axes of an array.</li>
+                        <li>Returns the modified array.</li>
+                        <span>Ex:</span>
+                        <br><code>
+                            >>> a = np.arange(1, 5).reshape(2, 2)
+                            <br>>>> a
+                            <br>>>> b = np.transpose(a)
+                            <br>>>> b
+                        </code>
+                        <br>
+                        <span>Note:</span>
+                        <ul>
+                            <li>No change in data hence it returns only view but not copy.</li>
+                        </ul>
+                        <span>Ex:</span>
+                        <br><code>
+                            >>> a[0][0] = 333
+                            <br>>>> a
+                            <br>>>> b
+                        </code>
                     </ul>
                 </div>
             </div>
