@@ -1693,7 +1693,7 @@
                     </ul>
                 </div>
 
-                <div class="arrManupulation">
+                <div class="arrManipulation">
                     <h3>Array Manipulation Functions</h3>
                     <ul>
                         <li>.reshape()</li>
@@ -1943,7 +1943,7 @@
                         </code>
                     </ul>
 
-                    <p><b>.flat variable:</b></p>                    
+                    <p><b>.flat variable:</b></p>
                     <ul>
                         <li>It is a 1-D iterator over the array.</li>
                         <li>This is a 'numpy.flatiter' instance.</li>
@@ -2004,8 +2004,10 @@
                         </tr>
 
                         <tr>
-                            <td>If we perform any changes in the flatten copy, then those changes won't be reflected in the original copy.</td>
-                            <td>If we perform any changes in the ravel copy, then those chnages will be reflected in the original copy.</td>
+                            <td>If we perform any changes in the flatten copy, then those changes won't be reflected in
+                                the original copy.</td>
+                            <td>If we perform any changes in the ravel copy, then those chnages will be reflected in the
+                                original copy.</td>
                         </tr>
 
                         <tr>
@@ -2038,7 +2040,100 @@
                             <br>>>> a
                             <br>>>> b
                         </code>
+                        <br><b>For 3-D Array: (2, 3, 4)</b>
+                        <ul>
+                            <li>2 -- 2-D Arrays</li>
+                            <li>3 -- 3 rows</li>
+                            <li>4 -- 4 Columns</li>
+                            <li>Total size = 24</li>
+                            <br>
+                            <code>
+                                transpose(a, axes = None)
+                                <br>transpose(a) -- (4, 3, 2)
+                                <br><span>Ex:</span><br>
+                                >>> a = np.arange(24).reshape(2, 3, 4)
+                                <br>>>> a 
+                                <br>>>> b = np.transpose(a)
+                                <br>>>> b
+                                <br>>>> b.shape #(4, 3, 2)
+                            </code>
+                        </ul>
+                        <b>Transpose of 1-D array:</b>
+                        <ul>
+                            <li>Transpose of 1-D array will be generated same array only.</li>
+                            <span>Ex:</span>
+                            <br><code>
+                                >>> a = np.arange(6)
+                                <br>>>> a
+                                <br>>>> np.transpose(a)
+                            </code>
+                        </ul>
+                        <b>4-D Array:</b>
+                        <ul><span>Ex:</span>
+                            <br><code>
+                            a = (2, 3, 4, 5)
+                            <br>transpose(a) -- (5, 4, 3, 2)
+                        </code>
+                        </ul>
+
+                        <p><b>axes parameter:</b></p>
+                        <ul>
+                            <li>If we are not using axes parameter, then dimention will be reversed.</li>
+                            <li>Axes parameter describes in which order we have to take axes.</li>
+                            <li>It is helpful for 3-D and 4-D arrays.</li>
+
+                            <b>For 3-D array: (2, 3, 4)</b>
+                            <ul>
+                                <li>The size of axis - 0: 2</li>
+                                <li>The size of axis - 1: 3</li>
+                                <li>The size of axis - 2: 4</li>
+                                <code>np.transpose(a) -- (4, 3, 2)</code>
+                                <p><span>Q: </span>My required order is: (2, 4, 3) / (4, 2, 3) / (3, 4, 2)</p>
+                                <code>np.transpose(a, axes = (0, 2, 1) / (2, 0, 1) / (1, 2, 0))
+                                    <br>np.transpose(a, axes=(0, 2, 2)) #ValueError: repeated axis in transpose
+                                </code>
+                            </ul>
+
+                            <span>Note:</span>
+                            <br>
+                            <ul>
+                                <li>For 1-D array, there is no impact of transpose() function.</li>
+                                <li>If we are not using axes argument, then dimentions will be reversed.</li>
+                                <li>If we provide axes argument, then we can specify our own order axes.</li>
+                                <li>Repeated axis in transpose is not allowed (0, 2, 2).</li>
+                                <li>Axes argument is more helpful from 3-D array oneards but not for 2-D array.</li>
+                                <li>Various possible syntaxes:</li>
+                                <ul>
+                                    <li>np.transpose(a)</li>
+                                    <li>np.transpose(a, axes=(2, 0, 1))</li>
+                                    <li>ndarray.transpose()</li>
+                                    <li>ndarray.T</li>
+                                    <li>ndarray.transpose(*axes)</li>
+                                </ul>
+                            </ul>
+
+                            <p><b>ndarray class transpose() method:</b></p>
+                            <span>Ex:</span>
+                            <br><code>
+                                >>> help(np.ndarray.transpose)
+                                <br>a.transpose(*axes)
+                            </code>
+                            <br><p>Returns a view of the array with axes transposed.</p>
+                            <span>Ex:</span>
+                            <br><code>
+                                >>> a = np.arange(24).reshape(2, 3, 4)
+                                <br>>>> a.shape #(2, 3, 4)
+                                <br>>>> b = a.transpose()
+                                <br>>>> b.shape #(4, 3, 2)
+                                <br>>>> b = a.transpose((2, 0, 1))
+                                <br>>>> b.shape #(4, 2, 3)
+                                <br>>>> b = a.T
+                                <br>>>> b.shape #(4, 3, 2)
+                            </code>
+                        </ul>
                     </ul>
+
+
                 </div>
             </div>
         </div>

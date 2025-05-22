@@ -1,5 +1,4 @@
 // Scroll to Top Function code
-
 function scrollToTop() {
   window.scrollTo({
     top: 0,
